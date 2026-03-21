@@ -1,0 +1,13 @@
+{
+  "users": 
+  [
+    {"username": "slambi", "password": "member123", "role": "member"},
+    {"username": "umpalumpa", "password": "admin123", "role": "librarian"}
+  ],
+
+  "catalog":
+  [
+    {"title": "DefaultTitle", "author": "DefaultAuthor", "owner": ""},
+    {"title": "DefaultTitle", "author": "DefaultAuthor", "owner": "slambi"} 
+  ]
+}
