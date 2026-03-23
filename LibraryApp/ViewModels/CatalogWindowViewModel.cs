@@ -6,7 +6,7 @@ using Avalonia.Controls.Primitives;
 
 
 namespace LibraryApp.ViewModels;
-public class CatalogWindowViewModel
+public partial class CatalogWindowViewModel : ViewModelBase
 {
 
 }

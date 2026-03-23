@@ -6,5 +6,11 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="LibraryApp.Views.ProfileWindow"
              x:DataType="vm:ProfileWindowViewModel">
-  Welcome to ProfileWindow!
+
+  <StackPanel Margin="20" VerticalAlignment="Center">
+      <TextBlock Text="{Binding Username}" HorizontalAlignment="Center"/>
+      <TextBlock Text="{Binding Role}" HorizontalAlignment="Center"/>
+      
+      <Button Margin="0 5" Width= "100" HorizontalAlignment="Center" Content="Log Out" HorizontalContentAlignment="Center" Command="{Binding LogOut}"/>
+  </StackPanel> 
 </UserControl>

@@ -10,6 +10,5 @@ public partial class LogInWindow : UserControl
     public LogInWindow()
     {
         InitializeComponent();
-        DataContext = new LogInWindowViewModel();
     }
 }

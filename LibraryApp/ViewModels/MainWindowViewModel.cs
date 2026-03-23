@@ -9,26 +9,27 @@ namespace LibraryApp.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
+    private static MainWindowViewModel instance;
+    public static MainWindowViewModel Instance => instance;
+
     [ObservableProperty]
     public UserControl activeWindow;
-    public UserControl logInWindow, tabControlWindow;
-
-
+    //public UserControl logInWindow, tabControlWindow;
+    
     [ObservableProperty]
     public bool notificationPopupEnabled;
 
     [ObservableProperty]
     public string notificationMessage;
 
-    private static MainWindowViewModel instance;
-    public static MainWindowViewModel Instance => instance;
 
+    public UserData loggedInUserProfile;
     
 
     public MainWindowViewModel()
     {
-        logInWindow = new LogInWindow() {DataContext = new LogInWindowViewModel()};
-        tabControlWindow = new TabControlWindow() {DataContext = new TabControlWindowViewModel()};
+        //logInWindow = new LogInWindow() {DataContext = new LogInWindowViewModel()};
+        //tabControlWindow = new TabControlWindow() {DataContext = new TabControlWindowViewModel()};
         
 
         ChangeActiveWindow(Window.LOGIN);
@@ -36,20 +37,36 @@ public partial class MainWindowViewModel : ViewModelBase
         instance = this;
     }
 
+    public UserData GetLoggedInUserProfile()
+    {
+        return loggedInUserProfile;
+    }
 
+    public void SetLoggedInUserProfile(UserData loggedInUserProfileInput)
+    {
+        loggedInUserProfile = loggedInUserProfileInput;
+    }
+
+    public void ClearLoggedInUserProfile()
+    {
+        loggedInUserProfile = null;
+    }
 
     public void ChangeActiveWindow(Window window)
     {
         switch(window)
         {
             case Window.LOGIN:
-                ActiveWindow = logInWindow;
+                //ActiveWindow = logInWindow;
+                ActiveWindow = new LogInWindow() {DataContext = new LogInWindowViewModel()};
                 break;
             case Window.HOME:
-                ActiveWindow = tabControlWindow;
+                //ActiveWindow = tabControlWindow;
+                ActiveWindow = new TabControlWindow() {DataContext = new TabControlWindowViewModel()};
                 break;
             default:
-                ActiveWindow = logInWindow;
+                //ActiveWindow = logInWindow;
+                ActiveWindow = new LogInWindow() {DataContext = new LogInWindowViewModel()};
                 break;
         }
     }

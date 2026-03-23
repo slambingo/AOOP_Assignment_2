@@ -17,7 +17,21 @@ public class DataManager
         
     }
 
+    public UserData GetUser(string usernameInput, string passwordInput)
+    {
+        for(int i = 0; i < saveData.users.Count; i++)
+        {
+            if(saveData.users[i].username == usernameInput)
+            {
+                if(saveData.users[i].password == passwordInput)
+                {
+                    return saveData.users[i];
+                }
+            }
+        }
 
+        return null;
+    }
 
     public void LoadSaveData() //written by AI
     {
@@ -32,14 +46,14 @@ public class DataManager
         
     }
 
-    public bool IsLogInValid(string _username, string _password)
+    public bool IsLogInValid(string usernameInput, string passwordInput)
     {
         
         for(int i = 0; i < saveData.users.Count; i++)
         {
-            if(saveData.users[i].username == _username)
+            if(saveData.users[i].username == usernameInput)
             {
-                if(saveData.users[i].password == _password)
+                if(saveData.users[i].password == passwordInput)
                 {
                     return true;
                 }

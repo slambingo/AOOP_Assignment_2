@@ -11,14 +11,10 @@
 
   <TabControl Margin="5">
     <TabItem Header="Catalog">
-      <ContentControl>
-        <views:CatalogWindow/>
-      </ContentControl>
+      <ContentControl Content="{Binding Tab1Window}"/>
     </TabItem>
     <TabItem Header="Profile">
-      <ContentControl>
-        <views:ProfileWindow/>
-      </ContentControl>
+      <ContentControl Content="{Binding Tab2Window}"/>
     </TabItem>
   </TabControl>
 </UserControl>

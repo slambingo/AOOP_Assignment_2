@@ -40,8 +40,11 @@ public partial class LogInWindowViewModel : ViewModelBase
         if(isLogInValid)
         {
             //commence to next view
+            UserData user = dataManager.GetUser(Username, Password);
+            MainWindowViewModel.Instance.SetLoggedInUserProfile(user);
             MainWindowViewModel.Instance.ShowNotificationPopup($"Logged in as {Username}");
             MainWindowViewModel.Instance.ChangeActiveWindow(Window.HOME);
+            
         }
         else
         {
