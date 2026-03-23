@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:LibraryApp.ViewModels"
+             xmlns:views="using:LibraryApp.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="LibraryApp.Views.TabControlWindow"
+             x:DataType="vm:TabControlWindowViewModel">
+
+
+  <TabControl Margin="5">
+    <TabItem Header="Catalog">
+      <ContentControl>
+        <views:CatalogWindow/>
+      </ContentControl>
+    </TabItem>
+    <TabItem Header="Profile">
+      <ContentControl>
+        <views:ProfileWindow/>
+      </ContentControl>
+    </TabItem>
+  </TabControl>
+</UserControl>
