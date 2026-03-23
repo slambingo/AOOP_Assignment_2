@@ -14,11 +14,28 @@
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
-        
+
+    
     </Design.DataContext>
     
-    <ContentControl>
-        <views:LogInWindow/>
-    </ContentControl>
+    
+    
+
+    <Panel>
+        <ContentControl Content="{Binding ActiveWindow}"/>
+
+        <Popup x:Name="NotificationPopup"
+            IsOpen="{Binding NotificationPopupEnabled}"
+            Placement="Center"
+            IsLightDismissEnabled="True">
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
+                    BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                    BorderThickness="1" CornerRadius="4" Padding="12">
+                <TextBlock Text="{Binding NotificationMessage}" Foreground="Red"/>
+            </Border>
+        </Popup>
+    </Panel>
+    
+   
     
 </Window>

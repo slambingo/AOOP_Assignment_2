@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Security.Cryptography;
 using CommunityToolkit.Mvvm.Input;
+using Avalonia.Controls.Primitives;
 
 
 namespace LibraryApp.ViewModels;
@@ -18,6 +19,8 @@ public partial class LogInWindowViewModel : ViewModelBase
     public string password;
 
 
+
+   
 
     private DataManager dataManager;
     public LogInWindowViewModel()
@@ -37,11 +40,11 @@ public partial class LogInWindowViewModel : ViewModelBase
         if(isLogInValid)
         {
             //commence to next view
-            LogInFeedback = "Loggedin";
+            MainWindowViewModel.Instance.ShowNotificationPopup("Loggedin");
         }
         else
         {
-            LogInFeedback = "Wrong username or password";
+            MainWindowViewModel.Instance.ShowNotificationPopup("Wrong username or password");
         }
     }
 }

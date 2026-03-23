@@ -26,9 +26,6 @@ build_property.EnableCodeStyleSeverity =
 [C:/SduUniversity/MyCourses/Semester4/AOOP/Assignment2/AOOP_Assignment_2/LibraryApp/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/SduUniversity/MyCourses/Semester4/AOOP/Assignment2/AOOP_Assignment_2/LibraryApp/Views/ErrorPopUpWindow.axaml]
-build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
-
 [C:/SduUniversity/MyCourses/Semester4/AOOP/Assignment2/AOOP_Assignment_2/LibraryApp/Views/LogInWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
