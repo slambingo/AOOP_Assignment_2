@@ -5,6 +5,7 @@ using System;
 using Avalonia.Controls;
 using LibraryApp;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 public class DataManager
 {
@@ -24,9 +25,39 @@ public class DataManager
         
     }
 
-    public ObservableCollection<BookData> GetBookList()
+    public ObservableCollection<BookData> GetBookList(bool getBorrowed, bool getAvailable)
     {
-        return saveData.catalog;
+        ObservableCollection<BookData> bookList = new ObservableCollection<BookData>();
+        foreach(var book in saveData.catalog)
+        {
+            
+            if(getAvailable && book.owner == string.Empty) 
+            {
+                bookList.Add(book);
+            }
+            else if(getBorrowed && book.owner != string.Empty)
+            {
+                bookList.Add(book);
+            }   
+        }
+
+        return bookList;
+        //return saveData.catalog;
+    }
+
+    public ObservableCollection<BookData> GetFullBookList()
+    {
+        return GetBookList(true, true);
+    }
+
+    public ObservableCollection<BookData> GetAvailableBookList()
+    {
+        return GetBookList(false, true);
+    }
+
+    public ObservableCollection<BookData> GetBorrowedBookList()
+    {
+        return GetBookList(true, false);
     }
 
     public UserData GetUser(string usernameInput, string passwordInput)

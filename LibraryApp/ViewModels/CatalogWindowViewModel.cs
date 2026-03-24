@@ -20,7 +20,7 @@ public partial class CatalogWindowViewModel : ViewModelBase
 
     public CatalogWindowViewModel()
     {
-        BookList = DataManager.Instance.GetBookList();
+        BookList = DataManager.Instance.GetFullBookList();
     }
 
 }

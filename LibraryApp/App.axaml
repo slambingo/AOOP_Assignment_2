@@ -11,5 +11,13 @@
   
     <Application.Styles>
         <FluentTheme />
+
+        <Style Selector="Button.NoHover:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Green"/>
+        </Style>
+
     </Application.Styles>
+
+
+
 </Application>
