@@ -4,17 +4,29 @@ using System.Collections.Generic;
 using System;
 using Avalonia.Controls;
 using LibraryApp;
+using System.Collections.ObjectModel;
 
 public class DataManager
 {
+    private static DataManager instance;
+    public static DataManager Instance => instance;
     private SaveData saveData;
 
     public DataManager() 
     {
+        
+
         LoadSaveData();
         PrintUsers();
         PrintBooks();
+
+        instance = this;
         
+    }
+
+    public ObservableCollection<BookData> GetBookList()
+    {
+        return saveData.catalog;
     }
 
     public UserData GetUser(string usernameInput, string passwordInput)
@@ -38,7 +50,8 @@ public class DataManager
         string jsonText = File.ReadAllText("SaveData.json");
         
         // Deserialize to ROOT class (contains both arrays)
-        saveData = JsonSerializer.Deserialize<SaveData>(jsonText)!;
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true }; //SO THE CAPITAL ex.: Title get/setters can work
+        saveData = JsonSerializer.Deserialize<SaveData>(jsonText, options)!;
     }
 
     public void SaveSaveData()

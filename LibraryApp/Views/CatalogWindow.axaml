@@ -6,5 +6,26 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="LibraryApp.Views.CatalogWindow"
              x:DataType="vm:CatalogWindowViewModel">
-  Welcome to CatalogWindow!
+
+  <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+    <ItemsControl ItemsSource="{Binding BookList}">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <WrapPanel/>
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <StackPanel  Margin="5">
+            <Rectangle Fill="Green" Width="100" Height="160"></Rectangle>
+            <TextBlock Text="{Binding Title}" Width="100" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
+            <TextBlock Text="{Binding Author}" Width="100" FontSize="12" Foreground="Gray" TextTrimming="CharacterEllipsis" />
+          </StackPanel>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+  </ScrollViewer>
+
+
+       
 </UserControl>

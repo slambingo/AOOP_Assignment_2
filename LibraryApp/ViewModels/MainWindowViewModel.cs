@@ -28,10 +28,10 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel()
     {
+
         //logInWindow = new LogInWindow() {DataContext = new LogInWindowViewModel()};
         //tabControlWindow = new TabControlWindow() {DataContext = new TabControlWindowViewModel()};
         
-
         ChangeActiveWindow(Window.LOGIN);
 
         instance = this;

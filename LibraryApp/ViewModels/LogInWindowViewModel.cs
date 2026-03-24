@@ -22,11 +22,11 @@ public partial class LogInWindowViewModel : ViewModelBase
 
    
 
-    private DataManager dataManager;
+
     public LogInWindowViewModel()
     {
         
-        dataManager = new DataManager();  // Exception caught here
+        new DataManager();
 
     }
     
@@ -34,13 +34,13 @@ public partial class LogInWindowViewModel : ViewModelBase
     public void LogIn()
     {
 
-        bool isLogInValid = dataManager.IsLogInValid(Username, Password);
+        bool isLogInValid = DataManager.Instance.IsLogInValid(Username, Password);
         
 
         if(isLogInValid)
         {
             //commence to next view
-            UserData user = dataManager.GetUser(Username, Password);
+            UserData user = DataManager.Instance.GetUser(Username, Password);
             MainWindowViewModel.Instance.SetLoggedInUserProfile(user);
             MainWindowViewModel.Instance.ShowNotificationPopup($"Logged in as {Username}");
             MainWindowViewModel.Instance.ChangeActiveWindow(Window.HOME);
