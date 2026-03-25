@@ -2,28 +2,33 @@
   "users": [
     {
       "username": "slambi",
-      "password": "member123",
+      "password": "5600376e863d2f57a053518f324ad3840b0bc2348b573af281a7b7cbe7a228c6",
       "role": "member"
     },
     {
       "username": "member",
-      "password": "member",
+      "password": "e31ab643c44f7a0ec824b59d1194d60dac334200d845e61d2d289daa0f087ea4",
       "role": "member"
     },
     {
       "username": "2",
-      "password": "2",
+      "password": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
       "role": "member"
     },
     {
       "username": "1",
-      "password": "1",
+      "password": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
       "role": "librarian"
     },
     {
       "username": "admin",
-      "password": "admin",
+      "password": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
       "role": "librarian"
+    },
+    {
+      "username": "vizn3r",
+      "password": "98d44e13f455d916674d38424d39e1cb01b2a9132aacbb7b97a6f8bb7feb2544",
+      "role": "member"
     }
   ],
   "catalog": [
@@ -60,7 +65,7 @@
       "Author": "F. Scott Fitzgerald",
       "Isbn": "9780743273565",
       "Description": "Jay Gatsby\u0027s obsessive pursuit of lost love amid 1920s excess and corruption.",
-      "Owner": ""
+      "Owner": "member"
     },
     {
       "Title": "Sapiens",
@@ -88,7 +93,7 @@
       "Author": "J.K. Rowling",
       "Isbn": "9781408855652",
       "Description": "Young wizard Harry discovers his magical heritage and battles dark forces at Hogwarts.",
-      "Owner": "member"
+      "Owner": ""
     },
     {
       "Title": "The Da Vinci Code",
@@ -111,285 +116,285 @@
       "Description": "Santiago the shepherd follows his Personal Legend across deserts to find treasure.",
       "Owner": "member"
     },
-  {
-    "Title": "Brave New World",
-    "Author": "Aldous Huxley",
-    "Isbn": "9780060850524",
-    "Description": "In a technologically advanced future, society is engineered for stability at the cost of individuality.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Catcher in the Rye",
-    "Author": "J.D. Salinger",
-    "Isbn": "9780316769488",
-    "Description": "Holden Caulfield recounts his experiences in New York after being expelled from prep school.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Road",
-    "Author": "Cormac McCarthy",
-    "Isbn": "9780307387899",
-    "Description": "A father and son journey through a post-apocalyptic landscape seeking safety and hope.",
-    "Owner": ""
-  },
-  {
-    "Title": "Moby-Dick",
-    "Author": "Herman Melville",
-    "Isbn": "9780142437247",
-    "Description": "Captain Ahab obsessively hunts the white whale Moby Dick, symbol of fate and vengeance.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Martian",
-    "Author": "Andy Weir",
-    "Isbn": "9780553418026",
-    "Description": "Stranded on Mars, astronaut Mark Watney fights to survive using ingenuity and engineering.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Picture of Dorian Gray",
-    "Author": "Oscar Wilde",
-    "Isbn": "9780141439570",
-    "Description": "A man remains youthful while his hidden portrait ages and reflects his moral decay.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Girl with the Dragon Tattoo",
-    "Author": "Stieg Larsson",
-    "Isbn": "9780307454546",
-    "Description": "A journalist and hacker team up to uncover dark family secrets in Sweden.",
-    "Owner": ""
-  },
-  {
-    "Title": "Thinking, Fast and Slow",
-    "Author": "Daniel Kahneman",
-    "Isbn": "9780374533557",
-    "Description": "Explores the two systems that drive human thought: fast intuition and slow reasoning.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Name of the Wind",
-    "Author": "Patrick Rothfuss",
-    "Isbn": "9780756404741",
-    "Description": "A gifted young man grows into the world’s most legendary wizard, telling his own story.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Fellowship of the Ring",
-    "Author": "J.R.R. Tolkien",
-    "Isbn": "9780547928210",
-    "Description": "Frodo Baggins begins his quest to destroy the One Ring in Middle-earth’s epic struggle.",
-    "Owner": ""
-  },
-  {
-    "Title": "Fahrenheit 451",
-    "Author": "Ray Bradbury",
-    "Isbn": "9781451673319",
-    "Description": "In a future where books are banned, a fireman begins to question his role in suppressing knowledge.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Silence of the Lambs",
-    "Author": "Thomas Harris",
-    "Isbn": "9780312924584",
-    "Description": "An FBI trainee seeks help from imprisoned killer Hannibal Lecter to catch another murderer.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Kite Runner",
-    "Author": "Khaled Hosseini",
-    "Isbn": "9781594631931",
-    "Description": "A touching story of friendship, betrayal, and redemption set in Afghanistan’s turbulent history.",
-    "Owner": ""
-  },
-  {
-    "Title": "Life of Pi",
-    "Author": "Yann Martel",
-    "Isbn": "9780156027328",
-    "Description": "A boy is stranded on a lifeboat with a Bengal tiger after a shipwreck, discovering inner strength.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Shining",
-    "Author": "Stephen King",
-    "Isbn": "9780307743657",
-    "Description": "A struggling writer becomes the winter caretaker of a haunted hotel as madness consumes him.",
-    "Owner": ""
-  },
-  {
-    "Title": "A Game of Thrones",
-    "Author": "George R.R. Martin",
-    "Isbn": "9780553593716",
-    "Description": "Noble families vie for power in a harsh medieval world where winters can last decades.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Subtle Art of Not Giving a F*ck",
-    "Author": "Mark Manson",
-    "Isbn": "9780062457714",
-    "Description": "A candid self-help book about focusing on what truly matters and embracing life's struggles.",
-    "Owner": ""
-  },
-  {
-    "Title": "Educated",
-    "Author": "Tara Westover",
-    "Isbn": "9780399590504",
-    "Description": "A memoir of a woman who escapes her strict survivalist upbringing to pursue higher education.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Outsiders",
-    "Author": "S.E. Hinton",
-    "Isbn": "9780142407332",
-    "Description": "Teenage outsiders navigate class conflict and loyalty in a 1960s coming-of-age drama.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Old Man and the Sea",
-    "Author": "Ernest Hemingway",
-    "Isbn": "9780684801223",
-    "Description": "An aging fisherman battles a giant marlin in a timeless tale of endurance and dignity.",
-    "Owner": ""
-  },
-  {
-    "Title": "Crime and Punishment",
-    "Author": "Fyodor Dostoevsky",
-    "Isbn": "9780143058144",
-    "Description": "A destitute student wrestles with guilt and morality after committing a murder in St. Petersburg.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Handmaid's Tale",
-    "Author": "Margaret Atwood",
-    "Isbn": "9780385490818",
-    "Description": "In a totalitarian future, women are stripped of rights, and one struggles to survive in servitude.",
-    "Owner": ""
-  },
-  {
-    "Title": "Neuromancer",
-    "Author": "William Gibson",
-    "Isbn": "9780441569595",
-    "Description": "A washed-up hacker is hired for one last job in a fast-paced world of cyberpunk and AIs.",
-    "Owner": ""
-  },
-  {
-    "Title": "Slaughterhouse-Five",
-    "Author": "Kurt Vonnegut",
-    "Isbn": "9780385333849",
-    "Description": "Billy Pilgrim becomes 'unstuck in time,' experiencing war, aliens, and existential absurdity.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Midnight Library",
-    "Author": "Matt Haig",
-    "Isbn": "9780525559474",
-    "Description": "A woman explores infinite lives in a mysterious library where every book is a different version of her story.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Wind-Up Bird Chronicle",
-    "Author": "Haruki Murakami",
-    "Isbn": "9780679775430",
-    "Description": "A Tokyo man’s search for his missing wife leads him into surreal worlds of memory and fate.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Stranger",
-    "Author": "Albert Camus",
-    "Isbn": "9780679720201",
-    "Description": "An indifferent man faces the absurdity of existence and consequence after a senseless crime.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Shadow of the Wind",
-    "Author": "Carlos Ruiz Zafón",
-    "Isbn": "9780143034902",
-    "Description": "A boy in post-war Barcelona discovers a mysterious author and a hidden world of forgotten books.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Seven Husbands of Evelyn Hugo",
-    "Author": "Taylor Jenkins Reid",
-    "Isbn": "9781501161933",
-    "Description": "An aging film icon recounts her glamorous and scandalous life to a young journalist.",
-    "Owner": ""
-  },
-  {
-    "Title": "Project Hail Mary",
-    "Author": "Andy Weir",
-    "Isbn": "9780593135204",
-    "Description": "A man wakes up alone in space with no memory, tasked with saving humanity from extinction.",
-    "Owner": ""
-  },
-  {
-    "Title": "Ready Player One",
-    "Author": "Ernest Cline",
-    "Isbn": "9780307887443",
-    "Description": "A teenager enters a virtual reality contest that holds the key to immense fortune and control of the digital world.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Immortal Life of Henrietta Lacks",
-    "Author": "Rebecca Skloot",
-    "Isbn": "9781400052189",
-    "Description": "The true story of the woman whose cells revolutionized medical research without her knowledge.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Power of Habit",
-    "Author": "Charles Duhigg",
-    "Isbn": "9780812981605",
-    "Description": "Explores how habits form, how they can be changed, and their influence on our behavior and success.",
-    "Owner": ""
-  },
-  {
-    "Title": "Born a Crime",
-    "Author": "Trevor Noah",
-    "Isbn": "9780399588198",
-    "Description": "A comedian’s memoir of growing up in apartheid South Africa as the child of a black mother and white father.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Hitchhiker's Guide to the Galaxy",
-    "Author": "Douglas Adams",
-    "Isbn": "9780345391803",
-    "Description": "Earth is demolished to make way for a hyperspace bypass, sending one man on a cosmic adventure of absurdity.",
-    "Owner": ""
-  },
-  {
-    "Title": "Meditations",
-    "Author": "Marcus Aurelius",
-    "Isbn": "9780140449334",
-    "Description": "A collection of philosophical writings by a Roman emperor on virtue, acceptance, and the art of living well.",
-    "Owner": ""
-  },
-  {
-    "Title": "The Invisible Man",
-    "Author": "H.G. Wells",
-    "Isbn": "9780451531674",
-    "Description": "A scientist becomes invisible and slowly descends into madness and violence.",
-    "Owner": ""
-  },
-  {
-    "Title": "Dune Messiah",
-    "Author": "Frank Herbert",
-    "Isbn": "9780593201732",
-    "Description": "The continuation of Paul Atreides’s rule as emperor grappling with destiny and sacrifice on Arrakis.",
-    "Owner": ""
-  },
-  {
-    "Title": "Thinking in Systems",
-    "Author": "Donella H. Meadows",
-    "Isbn": "9781603580557",
-    "Description": "An accessible guide to understanding complex systems and how feedback loops shape real-world outcomes.",
-    "Owner": ""
-  },
-  {
-    "Title": "Man’s Search for Meaning",
-    "Author": "Viktor E. Frankl",
-    "Isbn": "9780807014271",
-    "Description": "A Holocaust survivor’s profound reflection on finding purpose through suffering and resilience.",
-    "Owner": ""
-  }
+    {
+      "Title": "Brave New World",
+      "Author": "Aldous Huxley",
+      "Isbn": "9780060850524",
+      "Description": "In a technologically advanced future, society is engineered for stability at the cost of individuality.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Catcher in the Rye",
+      "Author": "J.D. Salinger",
+      "Isbn": "9780316769488",
+      "Description": "Holden Caulfield recounts his experiences in New York after being expelled from prep school.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Road",
+      "Author": "Cormac McCarthy",
+      "Isbn": "9780307387899",
+      "Description": "A father and son journey through a post-apocalyptic landscape seeking safety and hope.",
+      "Owner": ""
+    },
+    {
+      "Title": "Moby-Dick",
+      "Author": "Herman Melville",
+      "Isbn": "9780142437247",
+      "Description": "Captain Ahab obsessively hunts the white whale Moby Dick, symbol of fate and vengeance.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Martian",
+      "Author": "Andy Weir",
+      "Isbn": "9780553418026",
+      "Description": "Stranded on Mars, astronaut Mark Watney fights to survive using ingenuity and engineering.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Picture of Dorian Gray",
+      "Author": "Oscar Wilde",
+      "Isbn": "9780141439570",
+      "Description": "A man remains youthful while his hidden portrait ages and reflects his moral decay.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Girl with the Dragon Tattoo",
+      "Author": "Stieg Larsson",
+      "Isbn": "9780307454546",
+      "Description": "A journalist and hacker team up to uncover dark family secrets in Sweden.",
+      "Owner": ""
+    },
+    {
+      "Title": "Thinking, Fast and Slow",
+      "Author": "Daniel Kahneman",
+      "Isbn": "9780374533557",
+      "Description": "Explores the two systems that drive human thought: fast intuition and slow reasoning.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Name of the Wind",
+      "Author": "Patrick Rothfuss",
+      "Isbn": "9780756404741",
+      "Description": "A gifted young man grows into the world\u2019s most legendary wizard, telling his own story.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Fellowship of the Ring",
+      "Author": "J.R.R. Tolkien",
+      "Isbn": "9780547928210",
+      "Description": "Frodo Baggins begins his quest to destroy the One Ring in Middle-earth\u2019s epic struggle.",
+      "Owner": ""
+    },
+    {
+      "Title": "Fahrenheit 451",
+      "Author": "Ray Bradbury",
+      "Isbn": "9781451673319",
+      "Description": "In a future where books are banned, a fireman begins to question his role in suppressing knowledge.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Silence of the Lambs",
+      "Author": "Thomas Harris",
+      "Isbn": "9780312924584",
+      "Description": "An FBI trainee seeks help from imprisoned killer Hannibal Lecter to catch another murderer.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Kite Runner",
+      "Author": "Khaled Hosseini",
+      "Isbn": "9781594631931",
+      "Description": "A touching story of friendship, betrayal, and redemption set in Afghanistan\u2019s turbulent history.",
+      "Owner": "vizn3r"
+    },
+    {
+      "Title": "Life of Pi",
+      "Author": "Yann Martel",
+      "Isbn": "9780156027328",
+      "Description": "A boy is stranded on a lifeboat with a Bengal tiger after a shipwreck, discovering inner strength.",
+      "Owner": "vizn3r"
+    },
+    {
+      "Title": "The Shining",
+      "Author": "Stephen King",
+      "Isbn": "9780307743657",
+      "Description": "A struggling writer becomes the winter caretaker of a haunted hotel as madness consumes him.",
+      "Owner": ""
+    },
+    {
+      "Title": "A Game of Thrones",
+      "Author": "George R.R. Martin",
+      "Isbn": "9780553593716",
+      "Description": "Noble families vie for power in a harsh medieval world where winters can last decades.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Subtle Art of Not Giving a F*ck",
+      "Author": "Mark Manson",
+      "Isbn": "9780062457714",
+      "Description": "A candid self-help book about focusing on what truly matters and embracing life\u0027s struggles.",
+      "Owner": ""
+    },
+    {
+      "Title": "Educated",
+      "Author": "Tara Westover",
+      "Isbn": "9780399590504",
+      "Description": "A memoir of a woman who escapes her strict survivalist upbringing to pursue higher education.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Outsiders",
+      "Author": "S.E. Hinton",
+      "Isbn": "9780142407332",
+      "Description": "Teenage outsiders navigate class conflict and loyalty in a 1960s coming-of-age drama.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Old Man and the Sea",
+      "Author": "Ernest Hemingway",
+      "Isbn": "9780684801223",
+      "Description": "An aging fisherman battles a giant marlin in a timeless tale of endurance and dignity.",
+      "Owner": ""
+    },
+    {
+      "Title": "Crime and Punishment",
+      "Author": "Fyodor Dostoevsky",
+      "Isbn": "9780143058144",
+      "Description": "A destitute student wrestles with guilt and morality after committing a murder in St. Petersburg.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Handmaid\u0027s Tale",
+      "Author": "Margaret Atwood",
+      "Isbn": "9780385490818",
+      "Description": "In a totalitarian future, women are stripped of rights, and one struggles to survive in servitude.",
+      "Owner": ""
+    },
+    {
+      "Title": "Neuromancer",
+      "Author": "William Gibson",
+      "Isbn": "9780441569595",
+      "Description": "A washed-up hacker is hired for one last job in a fast-paced world of cyberpunk and AIs.",
+      "Owner": ""
+    },
+    {
+      "Title": "Slaughterhouse-Five",
+      "Author": "Kurt Vonnegut",
+      "Isbn": "9780385333849",
+      "Description": "Billy Pilgrim becomes \u0027unstuck in time,\u0027 experiencing war, aliens, and existential absurdity.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Midnight Library",
+      "Author": "Matt Haig",
+      "Isbn": "9780525559474",
+      "Description": "A woman explores infinite lives in a mysterious library where every book is a different version of her story.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Wind-Up Bird Chronicle",
+      "Author": "Haruki Murakami",
+      "Isbn": "9780679775430",
+      "Description": "A Tokyo man\u2019s search for his missing wife leads him into surreal worlds of memory and fate.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Stranger",
+      "Author": "Albert Camus",
+      "Isbn": "9780679720201",
+      "Description": "An indifferent man faces the absurdity of existence and consequence after a senseless crime.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Shadow of the Wind",
+      "Author": "Carlos Ruiz Zaf\u00F3n",
+      "Isbn": "9780143034902",
+      "Description": "A boy in post-war Barcelona discovers a mysterious author and a hidden world of forgotten books.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Seven Husbands of Evelyn Hugo",
+      "Author": "Taylor Jenkins Reid",
+      "Isbn": "9781501161933",
+      "Description": "An aging film icon recounts her glamorous and scandalous life to a young journalist.",
+      "Owner": ""
+    },
+    {
+      "Title": "Project Hail Mary",
+      "Author": "Andy Weir",
+      "Isbn": "9780593135204",
+      "Description": "A man wakes up alone in space with no memory, tasked with saving humanity from extinction.",
+      "Owner": ""
+    },
+    {
+      "Title": "Ready Player One",
+      "Author": "Ernest Cline",
+      "Isbn": "9780307887443",
+      "Description": "A teenager enters a virtual reality contest that holds the key to immense fortune and control of the digital world.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Immortal Life of Henrietta Lacks",
+      "Author": "Rebecca Skloot",
+      "Isbn": "9781400052189",
+      "Description": "The true story of the woman whose cells revolutionized medical research without her knowledge.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Power of Habit",
+      "Author": "Charles Duhigg",
+      "Isbn": "9780812981605",
+      "Description": "Explores how habits form, how they can be changed, and their influence on our behavior and success.",
+      "Owner": ""
+    },
+    {
+      "Title": "Born a Crime",
+      "Author": "Trevor Noah",
+      "Isbn": "9780399588198",
+      "Description": "A comedian\u2019s memoir of growing up in apartheid South Africa as the child of a black mother and white father.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Hitchhiker\u0027s Guide to the Galaxy",
+      "Author": "Douglas Adams",
+      "Isbn": "9780345391803",
+      "Description": "Earth is demolished to make way for a hyperspace bypass, sending one man on a cosmic adventure of absurdity.",
+      "Owner": ""
+    },
+    {
+      "Title": "Meditations",
+      "Author": "Marcus Aurelius",
+      "Isbn": "9780140449334",
+      "Description": "A collection of philosophical writings by a Roman emperor on virtue, acceptance, and the art of living well.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Invisible Man",
+      "Author": "H.G. Wells",
+      "Isbn": "9780451531674",
+      "Description": "A scientist becomes invisible and slowly descends into madness and violence.",
+      "Owner": ""
+    },
+    {
+      "Title": "Dune Messiah",
+      "Author": "Frank Herbert",
+      "Isbn": "9780593201732",
+      "Description": "The continuation of Paul Atreides\u2019s rule as emperor grappling with destiny and sacrifice on Arrakis.",
+      "Owner": ""
+    },
+    {
+      "Title": "Thinking in Systems",
+      "Author": "Donella H. Meadows",
+      "Isbn": "9781603580557",
+      "Description": "An accessible guide to understanding complex systems and how feedback loops shape real-world outcomes.",
+      "Owner": ""
+    },
+    {
+      "Title": "Man\u2019s Search for Meaning",
+      "Author": "Viktor E. Frankl",
+      "Isbn": "9780807014271",
+      "Description": "A Holocaust survivor\u2019s profound reflection on finding purpose through suffering and resilience.",
+      "Owner": ""
+    }
   ]
 }

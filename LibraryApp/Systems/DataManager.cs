@@ -2,6 +2,8 @@ using System.Text.Json;
 using System.IO;
 using System.Collections.Generic;
 using System;
+using System.Security.Cryptography;
+using System.Text;
 using Avalonia.Controls;
 using LibraryApp;
 using System.Collections.ObjectModel;
@@ -164,11 +166,12 @@ public class DataManager
 
     public UserData GetUserWithLoginCredentials(string usernameInput, string passwordInput)
     {
+        string hashedPassword = HashPassword(passwordInput);
         for(int i = 0; i < saveData.users.Count; i++)
         {
             if(saveData.users[i].username == usernameInput)
             {
-                if(saveData.users[i].password == passwordInput)
+                if(saveData.users[i].password == hashedPassword)
                 {
                     return saveData.users[i];
                 }
@@ -201,22 +204,57 @@ public class DataManager
 
     public bool IsLogInValid(string usernameInput, string passwordInput)
     {
-        
+        string hashedPassword = HashPassword(passwordInput);
         for(int i = 0; i < saveData.users.Count; i++)
         {
             if(saveData.users[i].username == usernameInput)
             {
-                if(saveData.users[i].password == passwordInput)
+                if(saveData.users[i].password == hashedPassword)
                 {
                     return true;
                 }
             }
         }
-        
-        return false;  
+
+        return false;
     }
 
 
+
+    public static string HashPassword(string password)
+    {
+        byte[] bytes = SHA256.HashData(Encoding.UTF8.GetBytes(password));
+        StringBuilder sb = new StringBuilder();
+        foreach(var b in bytes)
+        {
+            sb.Append(b.ToString("x2"));
+        }
+        return sb.ToString();
+    }
+
+    public bool IsUsernameTaken(string username)
+    {
+        foreach(var user in saveData.users)
+        {
+            if(user.username == username) return true;
+        }
+        return false;
+    }
+
+    public bool RegisterUser(string username, string password)
+    {
+        if(string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password)) return false;
+        if(IsUsernameTaken(username)) return false;
+
+        saveData.users.Add(new UserData
+        {
+            username = username,
+            password = HashPassword(password),
+            role = "member"
+        });
+        SaveSaveData();
+        return true;
+    }
 
     public void PrintUsers()
     {

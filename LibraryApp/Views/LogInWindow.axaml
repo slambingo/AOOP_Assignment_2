@@ -16,6 +16,7 @@
         <TextBox Margin="0 5" Width="200" Watermark="Username" Text="{Binding Username}" HorizontalAlignment="Center"/>
         <TextBox Margin="0 5" Width="200" PasswordChar="*" Watermark="Password" Text="{Binding Password}" HorizontalAlignment="Center"/>
         <Button Margin="0 5" Width= "100" HorizontalAlignment="Center" Content="Log In" HorizontalContentAlignment="Center" Command="{Binding LogIn}"/>
+        <Button Margin="0 5" Width= "100" HorizontalAlignment="Center" Content="Register" HorizontalContentAlignment="Center" Command="{Binding Register}"/>
 
 
     </StackPanel>
