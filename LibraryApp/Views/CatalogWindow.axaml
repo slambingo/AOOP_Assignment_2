@@ -9,9 +9,9 @@
   <StackPanel>
 
     <StackPanel Orientation="Horizontal" Margin="5" >
-      <Button Content="Avialable Books" Command="{Binding ShowAvailableBooks}" Margin="5"></Button>
-      <Button Content="My Books" Command="{Binding ShowMyBooks}" Margin="5" ></Button>
-      <TextBox Watermark="Search..." Margin="5" Width="150" AcceptsReturn="False" TextChanged="{Binding SearchInputChanged}"></TextBox>
+      <Button IsVisible="{Binding IsMemberTabsEnabled}" Content="Avialable Books" Command="{Binding ShowAvailableBooks}" Margin="5"></Button>
+      <Button IsVisible="{Binding IsMemberTabsEnabled}" Content="My Books"  Command="{Binding ShowMyBooks}" Margin="5" ></Button>
+      <TextBox Text="{Binding SearchQueryInput, UpdateSourceTrigger=PropertyChanged}" Watermark="Search..." Margin="5" Width="150" AcceptsReturn="False"></TextBox>
       
     </StackPanel>
     

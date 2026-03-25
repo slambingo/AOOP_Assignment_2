@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Input;
 using Avalonia.Controls.Primitives;
 using System.Collections.ObjectModel;
 using Avalonia.Diagnostics.Screenshots;
+using System.Runtime.Versioning;
 
 
 namespace LibraryApp.ViewModels;
@@ -30,11 +31,32 @@ public partial class CatalogWindowViewModel : ViewModelBase
     [ObservableProperty]
     public bool bookDetailPopupEnabled;
 
+    [ObservableProperty]
+    private string searchQueryInput;
+
+    [ObservableProperty]
+    private bool isMemberTabsEnabled;
+
+    partial void OnSearchQueryInputChanged(string value)
+    {
+        UpdateCatalogViewBasedOnSearchQuery(value);  // Use 'value' param for safety
+    }
+
     private CatalogView currentCatalogView;
 
     public CatalogWindowViewModel()
     {
-        ChangeCatalogView(CatalogView.AVAILABLE_BOOKS);
+        if(MainWindowViewModel.Instance.IsLoggedInUserMember())
+        {
+            ChangeCatalogView(CatalogView.AVAILABLE_BOOKS);
+            isMemberTabsEnabled = true;
+        }
+        else
+        {
+           ChangeCatalogView(CatalogView.ALL_BOOKS); 
+           isMemberTabsEnabled = false;
+        }
+        
     }
 
     [RelayCommand]
@@ -79,21 +101,15 @@ public partial class CatalogWindowViewModel : ViewModelBase
         ChangeCatalogView(CatalogView.MY_BOOKS);
     }
 
-    [RelayCommand]
-    public void SearchInputChanged()
-    {
-        
-    }
-
     private void UpdateCatalogViewBasedOnSearchQuery(string searchQuery)
     {
         switch(currentCatalogView)
         {
             case CatalogView.AVAILABLE_BOOKS:
-                BookList = DataManager.Instance.GetAvailableBookList();
+                BookList = DataManager.Instance.GetAvailableBookListWithSearchQuery(searchQuery);
                 break;
             case CatalogView.MY_BOOKS:
-                BookList = DataManager.Instance.GetBorrowedBookListFromUser(MainWindowViewModel.Instance.GetLoggedInUserProfile());
+                BookList = DataManager.Instance.GetBorrowedBookListFromUserWithSearchQuery(MainWindowViewModel.Instance.GetLoggedInUserProfile(), searchQuery);
                 break;
 
             default:
@@ -103,17 +119,21 @@ public partial class CatalogWindowViewModel : ViewModelBase
 
     private void ChangeCatalogView(CatalogView catalogView)
     {
+        
+
         switch(catalogView)
         {
             case CatalogView.AVAILABLE_BOOKS:
                 BookList = DataManager.Instance.GetAvailableBookList();
                 IsBorrowButtonEnabled = true;
                 IsReturnButtonEnabled = false;
+                //UpdateCatalogViewBasedOnSearchQuery(SearchQueryInput);
                 break;
             case CatalogView.MY_BOOKS:
                 BookList = DataManager.Instance.GetBorrowedBookListFromUser(MainWindowViewModel.Instance.GetLoggedInUserProfile());
                 IsBorrowButtonEnabled = false;
                 IsReturnButtonEnabled = true;
+                //UpdateCatalogViewBasedOnSearchQuery(SearchQueryInput);
                 break;
 
             default:
@@ -121,12 +141,14 @@ public partial class CatalogWindowViewModel : ViewModelBase
         }
 
         currentCatalogView = catalogView;
+        
     }
 
     private enum CatalogView
     {
         AVAILABLE_BOOKS,
-        MY_BOOKS
+        MY_BOOKS,
+        ALL_BOOKS
     }
 
     

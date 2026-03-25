@@ -44,6 +44,18 @@ public partial class MainWindowViewModel : ViewModelBase
         return loggedInUserProfile;
     }
 
+    public bool IsLoggedInUserMember()
+    {
+        if(loggedInUserProfile.role == "member")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void SetLoggedInUserProfile(UserData loggedInUserProfileInput)
     {
         loggedInUserProfile = loggedInUserProfileInput;

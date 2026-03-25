@@ -25,21 +25,21 @@ public class DataManager
         
     }
 
-    public ObservableCollection<BookData> GetBookList(bool getBorrowed, bool getAvailable, bool specificOwner, UserData user, bool specificSearchQuery, string searchQuery)
+    public ObservableCollection<BookData> GetBookList(BookFilter filter)
     {
         ObservableCollection<BookData> bookList = new ObservableCollection<BookData>();
         foreach(var book in saveData.catalog)
         {
             
-            if(getAvailable && book.owner == string.Empty) 
+            if(filter.getAvailable && book.owner == string.Empty) 
             {
                 bookList.Add(book);
             }
-            else if(getBorrowed && book.owner != string.Empty)
+            else if(filter.getBorrowed && book.owner != string.Empty)
             {
-                if(specificOwner)
+                if(filter.getSpecificOwner)
                 {
-                    if(user.username == book.owner)
+                    if(filter.owner.username == book.owner)
                     {
                         bookList.Add(book);
                     }
@@ -52,43 +52,63 @@ public class DataManager
             }   
         }
 
+
+        //remove ones that shouldnt come up from the search query
+        if(filter.useSearchQuery && filter.searchQuery != string.Empty)
+        {
+            var searchQuery = filter.searchQuery.ToLower();
+            for (int i = bookList.Count - 1; i >= 0; i--)
+            {
+                var book = bookList[i];
+                if (!book.title.ToLower().Contains(searchQuery) && !book.author.ToLower().Contains(searchQuery))
+                {
+                    bookList.RemoveAt(i);
+                }
+            }
+        }
+
         return bookList;
-        //return saveData.catalog;
     }
+
 
     public ObservableCollection<BookData> GetFullBookList()
     {
-        return GetBookList(true, true, false, null, false, string.Empty);
+        return GetBookList(new BookFilter{ getAvailable=true, getBorrowed=true});
     }
 
     public ObservableCollection<BookData> GetAvailableBookList()
     {
-        return GetBookList(false, true, false, null, false, string.Empty);
+        return GetBookList(new BookFilter{ getAvailable=true});
     }
 
     public ObservableCollection<BookData> GetBorrowedBookList()
     {
-        return GetBookList(true, false, false, null, false, string.Empty);
+        return GetBookList(new BookFilter{ getAvailable=true});
     }
 
-    public ObservableCollection<BookData> GetFullBookListWithSearchQuery(string searchQuery)
+    public ObservableCollection<BookData> GetFullBookListWithSearchQuery(string searchQueryInput)
     {
-        return GetBookList(true, true, false, null, true, searchQuery);
+        return GetBookList(new BookFilter{ getAvailable=true, getBorrowed=true, useSearchQuery=true, searchQuery=searchQueryInput});
     }
 
-    public ObservableCollection<BookData> GetAvailableBookListWithSearchQuery(string searchQuery)
+    public ObservableCollection<BookData> GetAvailableBookListWithSearchQuery(string searchQueryInput)
     {
-        return GetBookList(false, true, false, null, true, searchQuery);
+        return GetBookList(new BookFilter{ getAvailable=true, useSearchQuery=true, searchQuery=searchQueryInput});
     }
 
-    public ObservableCollection<BookData> GetBorrowedBookListWithSearchQuery(string searchQuery)
+    public ObservableCollection<BookData> GetBorrowedBookListWithSearchQuery(string searchQueryInput)
     {
-        return GetBookList(true, false, false, null, true, searchQuery);
+        return GetBookList(new BookFilter{ getBorrowed=true, useSearchQuery=true, searchQuery=searchQueryInput});
+    }
+
+    public ObservableCollection<BookData> GetBorrowedBookListFromUserWithSearchQuery(UserData user, string searchQueryInput)
+    {
+        return GetBookList(new BookFilter{ getBorrowed=true, getSpecificOwner=true, owner=user, useSearchQuery=true, searchQuery=searchQueryInput});
     }
 
     public ObservableCollection<BookData> GetBorrowedBookListFromUser(UserData user)
     {
-        return GetBookList(true, false, true, user, false, string.Empty);
+        return GetBookList(new BookFilter{ getBorrowed=true, getSpecificOwner=true, owner=user});
     }
 
     public BookData GetBookByIsbn(string isbnInput)
