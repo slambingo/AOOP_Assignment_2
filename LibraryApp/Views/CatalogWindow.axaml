@@ -43,9 +43,8 @@
       </ItemsControl>
     </ScrollViewer>
 
-    
-    <ListBox
-        IsVisible="{Binding IsFullBorrowedBookListEnabled}"
+    <TextBlock IsVisible="{Binding IsFullBorrowedBookListEnabled}" Text="{Binding BorrowedBooksCount}"></TextBlock>
+    <ListBox IsVisible="{Binding IsFullBorrowedBookListEnabled}"
         ItemsSource="{Binding BookList}"
         MaxHeight="300"
         ScrollViewer.VerticalScrollBarVisibility="Auto">

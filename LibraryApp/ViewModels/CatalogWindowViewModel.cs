@@ -39,7 +39,6 @@ public partial class CatalogWindowViewModel : ViewModelBase
     [ObservableProperty]
     public BookData newBook;
 
-
     [RelayCommand]
     public void ConfirmAddNewBook()
     {
@@ -65,6 +64,8 @@ public partial class CatalogWindowViewModel : ViewModelBase
         AddNewBookPopupEnabled = false; 
     }
 
+    [ObservableProperty]
+    public string borrowedBooksCount;
 
     [ObservableProperty]
     private string searchQueryInput;
@@ -150,6 +151,7 @@ public partial class CatalogWindowViewModel : ViewModelBase
     [RelayCommand]
     public void ShowAllBorrowedBooks()
     {
+        BorrowedBooksCount = DataManager.Instance.GetBorrowedBookList().Count + " books are borrowed";
         ChangeCatalogView(CatalogView.BORROWED_BOOKS);
     }
 
