@@ -6,6 +6,7 @@ using Avalonia.Controls.Primitives;
 using System.Collections.ObjectModel;
 using Avalonia.Diagnostics.Screenshots;
 using System.Runtime.Versioning;
+using Avalonia.Controls;
 
 
 namespace LibraryApp.ViewModels;
@@ -36,6 +37,11 @@ public partial class CatalogWindowViewModel : ViewModelBase
 
     [ObservableProperty]
     private bool isMemberTabsEnabled;
+
+    [ObservableProperty]
+    private bool isFullBorrowedBookListEnabled;
+
+
 
     partial void OnSearchQueryInputChanged(string value)
     {
@@ -101,6 +107,19 @@ public partial class CatalogWindowViewModel : ViewModelBase
         ChangeCatalogView(CatalogView.MY_BOOKS);
     }
 
+    [RelayCommand]
+    public void ShowAllBooks()
+    {
+        ChangeCatalogView(CatalogView.ALL_BOOKS);
+    }
+
+
+    [RelayCommand]
+    public void ShowAllBorrowedBooks()
+    {
+        ChangeCatalogView(CatalogView.BORROWED_BOOKS);
+    }
+
     private void UpdateCatalogViewBasedOnSearchQuery(string searchQuery)
     {
         switch(currentCatalogView)
@@ -111,7 +130,9 @@ public partial class CatalogWindowViewModel : ViewModelBase
             case CatalogView.MY_BOOKS:
                 BookList = DataManager.Instance.GetBorrowedBookListFromUserWithSearchQuery(MainWindowViewModel.Instance.GetLoggedInUserProfile(), searchQuery);
                 break;
-
+            case CatalogView.ALL_BOOKS:
+                BookList = DataManager.Instance.GetFullBookListWithSearchQuery(searchQuery);
+                break;
             default:
                 break;
         }
@@ -120,22 +141,31 @@ public partial class CatalogWindowViewModel : ViewModelBase
     private void ChangeCatalogView(CatalogView catalogView)
     {
         
+        IsBorrowButtonEnabled = false;
+        IsReturnButtonEnabled = false;
+        IsFullBorrowedBookListEnabled = false;
 
         switch(catalogView)
         {
             case CatalogView.AVAILABLE_BOOKS:
                 BookList = DataManager.Instance.GetAvailableBookList();
                 IsBorrowButtonEnabled = true;
-                IsReturnButtonEnabled = false;
-                //UpdateCatalogViewBasedOnSearchQuery(SearchQueryInput);
-                break;
-            case CatalogView.MY_BOOKS:
-                BookList = DataManager.Instance.GetBorrowedBookListFromUser(MainWindowViewModel.Instance.GetLoggedInUserProfile());
-                IsBorrowButtonEnabled = false;
-                IsReturnButtonEnabled = true;
-                //UpdateCatalogViewBasedOnSearchQuery(SearchQueryInput);
                 break;
 
+            case CatalogView.MY_BOOKS:
+                BookList = DataManager.Instance.GetBorrowedBookListFromUser(MainWindowViewModel.Instance.GetLoggedInUserProfile());
+                IsReturnButtonEnabled = true;
+                break;
+
+            case CatalogView.ALL_BOOKS:
+                BookList = DataManager.Instance.GetFullBookList();
+                break;
+
+            case CatalogView.BORROWED_BOOKS:
+                BookList = DataManager.Instance.GetBorrowedBookList();
+                IsFullBorrowedBookListEnabled = true;
+                break;
+                
             default:
                 break;
         }
@@ -148,7 +178,8 @@ public partial class CatalogWindowViewModel : ViewModelBase
     {
         AVAILABLE_BOOKS,
         MY_BOOKS,
-        ALL_BOOKS
+        ALL_BOOKS,
+        BORROWED_BOOKS
     }
 
     

@@ -27,14 +27,14 @@
       "Author": "J.R.R. Tolkien",
       "Isbn": "9780547928227",
       "Description": "Bilbo Baggins embarks on an unexpected journey with dwarves to reclaim treasure from a dragon.",
-      "Owner": ""
+      "Owner": "slambi"
     },
     {
       "Title": "1984",
       "Author": "George Orwell",
       "Isbn": "9780451524935",
       "Description": "Winston Smith lives in a dystopian world controlled by Big Brother where thought is policed.",
-      "Owner": ""
+      "Owner": "slambi"
     },
     {
       "Title": "To Kill a Mockingbird",
@@ -48,14 +48,14 @@
       "Author": "Jane Austen",
       "Isbn": "9780141439518",
       "Description": "Elizabeth Bennet navigates love, marriage, and social class in Regency England.",
-      "Owner": ""
+      "Owner": "slambi"
     },
     {
       "Title": "The Great Gatsby",
       "Author": "F. Scott Fitzgerald",
       "Isbn": "9780743273565",
       "Description": "Jay Gatsby\u0027s obsessive pursuit of lost love amid 1920s excess and corruption.",
-      "Owner": ""
+      "Owner": "slambi"
     },
     {
       "Title": "Sapiens",
@@ -97,7 +97,7 @@
       "Author": "James Clear",
       "Isbn": "9781847941831",
       "Description": "Small changes for remarkable results through better habit formation and breaking bad ones.",
-      "Owner": ""
+      "Owner": "slambi"
     },
     {
       "Title": "The Alchemist",
@@ -111,7 +111,7 @@
       "Author": "Aldous Huxley",
       "Isbn": "9780060850524",
       "Description": "A dystopian society where citizens are genetically engineered and pacified by pleasure.",
-      "Owner": ""
+      "Owner": "slambi"
     }
   ]
 }

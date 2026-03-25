@@ -11,11 +11,15 @@
     <StackPanel Orientation="Horizontal" Margin="5" >
       <Button IsVisible="{Binding IsMemberTabsEnabled}" Content="Avialable Books" Command="{Binding ShowAvailableBooks}" Margin="5"></Button>
       <Button IsVisible="{Binding IsMemberTabsEnabled}" Content="My Books"  Command="{Binding ShowMyBooks}" Margin="5" ></Button>
+
+      <Button IsVisible="{Binding !IsMemberTabsEnabled}" Content="Full Catalog"  Command="{Binding ShowAllBooks}" Margin="5" ></Button>
+      <Button IsVisible="{Binding !IsMemberTabsEnabled}" Content="Borrowed Books"  Command="{Binding ShowAllBorrowedBooks}" Margin="5" ></Button>
+
       <TextBox Text="{Binding SearchQueryInput, UpdateSourceTrigger=PropertyChanged}" Watermark="Search..." Margin="5" Width="150" AcceptsReturn="False"></TextBox>
       
     </StackPanel>
     
-    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" MaxHeight="600">
+    <ScrollViewer IsVisible="{Binding !IsFullBorrowedBookListEnabled}" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" MaxHeight="600">
       <ItemsControl ItemsSource="{Binding BookList}">
         <ItemsControl.ItemsPanel>
           <ItemsPanelTemplate>
@@ -37,7 +41,27 @@
       </ItemsControl>
     </ScrollViewer>
 
-
+    
+    <ListBox
+        IsVisible="{Binding IsFullBorrowedBookListEnabled}"
+        ItemsSource="{Binding BookList}"
+        MaxHeight="300"
+        ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Title}" Margin="0,0,10,0" />
+                    <TextBlock Text="|" Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding Author}" Margin="0,0,10,0" />
+                    <TextBlock Text="|" Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding Isbn}" FontStyle="Italic" Margin="0,0,10,0" />
+                    <TextBlock Text="|" Margin="0,0,10,0" />
+                    <TextBlock Text="Borrowed by " />
+                    <TextBlock Foreground="Red" Text="{Binding Owner}" Margin="0,0,10,0" />
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 
     <Popup x:Name="BookDetailPopup"
         IsOpen="{Binding BookDetailPopupEnabled}"

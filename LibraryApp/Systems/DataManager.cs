@@ -83,7 +83,7 @@ public class DataManager
 
     public ObservableCollection<BookData> GetBorrowedBookList()
     {
-        return GetBookList(new BookFilter{ getAvailable=true});
+        return GetBookList(new BookFilter{ getBorrowed=true});
     }
 
     public ObservableCollection<BookData> GetFullBookListWithSearchQuery(string searchQueryInput)
