@@ -6,18 +6,23 @@
       "role": "member"
     },
     {
-      "username": "buba",
-      "password": "member123",
+      "username": "member",
+      "password": "member",
       "role": "member"
     },
     {
-      "username": "umpalumpa",
-      "password": "admin123",
-      "role": "librarian"
+      "username": "2",
+      "password": "2",
+      "role": "member"
     },
     {
       "username": "1",
       "password": "1",
+      "role": "librarian"
+    },
+    {
+      "username": "admin",
+      "password": "admin",
       "role": "librarian"
     }
   ],
@@ -27,63 +32,63 @@
       "Author": "J.R.R. Tolkien",
       "Isbn": "9780547928227",
       "Description": "Bilbo Baggins embarks on an unexpected journey with dwarves to reclaim treasure from a dragon.",
-      "Owner": "slambi"
+      "Owner": ""
     },
     {
       "Title": "1984",
       "Author": "George Orwell",
       "Isbn": "9780451524935",
       "Description": "Winston Smith lives in a dystopian world controlled by Big Brother where thought is policed.",
-      "Owner": "slambi"
+      "Owner": ""
     },
     {
       "Title": "To Kill a Mockingbird",
       "Author": "Harper Lee",
       "Isbn": "9780446310789",
       "Description": "Scout Finch learns about prejudice and justice in the Deep South during the 1930s.",
-      "Owner": "buba"
+      "Owner": "member"
     },
     {
       "Title": "Pride and Prejudice",
       "Author": "Jane Austen",
       "Isbn": "9780141439518",
       "Description": "Elizabeth Bennet navigates love, marriage, and social class in Regency England.",
-      "Owner": "slambi"
+      "Owner": ""
     },
     {
       "Title": "The Great Gatsby",
       "Author": "F. Scott Fitzgerald",
       "Isbn": "9780743273565",
       "Description": "Jay Gatsby\u0027s obsessive pursuit of lost love amid 1920s excess and corruption.",
-      "Owner": "slambi"
+      "Owner": ""
     },
     {
       "Title": "Sapiens",
       "Author": "Yuval Noah Harari",
       "Isbn": "9780062316097",
       "Description": "History of humankind from the Stone Age to the 21st century and our cognitive revolution.",
-      "Owner": "buba"
+      "Owner": "member"
     },
     {
       "Title": "Dune",
       "Author": "Frank Herbert",
       "Isbn": "9780441013593",
       "Description": "Paul Atreides battles for control of the desert planet Arrakis and its valuable spice.",
-      "Owner": "slambi"
+      "Owner": ""
     },
     {
       "Title": "Clean Code",
       "Author": "Robert C. Martin",
       "Isbn": "9780132350884",
       "Description": "Practical guide to writing maintainable, readable code with real-world examples for developers.",
-      "Owner": "slambi"
+      "Owner": ""
     },
     {
       "Title": "Harry Potter and the Philosopher\u0027s Stone",
       "Author": "J.K. Rowling",
       "Isbn": "9781408855652",
       "Description": "Young wizard Harry discovers his magical heritage and battles dark forces at Hogwarts.",
-      "Owner": "buba"
+      "Owner": "member"
     },
     {
       "Title": "The Da Vinci Code",
@@ -104,7 +109,7 @@
       "Author": "Paulo Coelho",
       "Isbn": "9780062315007",
       "Description": "Santiago the shepherd follows his Personal Legend across deserts to find treasure.",
-      "Owner": "buba"
+      "Owner": "member"
     }
   ]
 }
