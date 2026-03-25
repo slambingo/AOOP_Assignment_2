@@ -37,7 +37,6 @@ public class BookData : ObservableObject
         set => SetProperty(ref owner, value);
     }
 
-
     public override string ToString()
     {
         return $"{title} by {author} (owner: {owner})";

@@ -9,11 +9,13 @@
   <StackPanel>
 
     <StackPanel Orientation="Horizontal" Margin="5" >
-      <Button IsVisible="{Binding IsMemberTabsEnabled}" Content="Avialable Books" Command="{Binding ShowAvailableBooks}" Margin="5"></Button>
-      <Button IsVisible="{Binding IsMemberTabsEnabled}" Content="My Books"  Command="{Binding ShowMyBooks}" Margin="5" ></Button>
+      <Button IsVisible="{Binding IsUserRoleMember}" Content="Avialable Books" Command="{Binding ShowAvailableBooks}" Margin="5"></Button>
+      <Button IsVisible="{Binding IsUserRoleMember}" Content="My Books"  Command="{Binding ShowMyBooks}" Margin="5" ></Button>
 
-      <Button IsVisible="{Binding !IsMemberTabsEnabled}" Content="Full Catalog"  Command="{Binding ShowAllBooks}" Margin="5" ></Button>
-      <Button IsVisible="{Binding !IsMemberTabsEnabled}" Content="Borrowed Books"  Command="{Binding ShowAllBorrowedBooks}" Margin="5" ></Button>
+      <Button IsVisible="{Binding !IsUserRoleMember}" Content="Full Catalog"  Command="{Binding ShowAllBooks}" Margin="5" ></Button>
+      <Button IsVisible="{Binding !IsUserRoleMember}" Content="Borrowed Books"  Command="{Binding ShowAllBorrowedBooks}" Margin="5" ></Button>
+      <Button IsVisible="{Binding !IsUserRoleMember}" Content="Add Book"  Command="{Binding AddNewBook}" Margin="5" ></Button>
+      
 
       <TextBox Text="{Binding SearchQueryInput, UpdateSourceTrigger=PropertyChanged}" Watermark="Search..." Margin="5" Width="150" AcceptsReturn="False"></TextBox>
       
@@ -76,17 +78,61 @@
 
                 <Rectangle Fill="DarkGreen" Width="200" Height="320"></Rectangle>
 
-                <StackPanel  Orientation="Vertical" Margin="5">
-                  <TextBlock Text="{Binding SelectedBook.Title}" Width="200" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
-                  <TextBlock Text="{Binding SelectedBook.Author}" Width="200" FontSize="12" Foreground="Gray" TextTrimming="CharacterEllipsis" />
-                  <TextBlock Text="{Binding SelectedBook.Isbn}" Width="200" FontSize="12" Foreground="Gray" FontStyle="Italic" TextTrimming="CharacterEllipsis" />
-                  <TextBlock Text="{Binding SelectedBook.Description}" Width="200" TextWrapping="Wrap" Margin="0 10 0 0 "/>
+                <StackPanel IsVisible="{Binding IsUserRoleMember}" Orientation="Vertical" Margin="5">
+                    <TextBlock Text="{Binding SelectedBook.Title}" Width="200" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="{Binding SelectedBook.Author}" Width="200" FontSize="12" Foreground="Gray" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="{Binding SelectedBook.Isbn}" Width="200" FontSize="12" Foreground="Gray" FontStyle="Italic" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="{Binding SelectedBook.Description}" Width="200" TextWrapping="Wrap" Margin="0 10 0 0 "/>
+                </StackPanel>
+
+                <StackPanel IsVisible="{Binding !IsUserRoleMember}" Orientation="Vertical" Margin="5">
+                  <TextBox Text="{Binding SelectedBook.Title}"
+                          Watermark="Enter book title"
+                          Width="200"
+                          TextWrapping="Wrap"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Padding="0" />
+
+                  <TextBox Text="{Binding SelectedBook.Author}"
+                          Watermark="Enter book author"
+                          Width="200"
+                          FontSize="12"
+                          Foreground="Gray"
+                          
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Padding="0" />
+
+                  <TextBox Text="{Binding SelectedBook.Isbn}"
+                          Watermark="Enter book isbn"
+                          Width="200"
+                          FontSize="12"
+                          Foreground="Gray"
+                          FontStyle="Italic"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Padding="0" />
+
+                  <TextBox Text="{Binding SelectedBook.Description}"
+                          Watermark="Enter book description"
+                          Width="200"
+                          TextWrapping="Wrap"
+                          Margin="0 10 0 0"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Padding="0"
+                          AcceptsReturn="True" />
+
+                  
                 </StackPanel>
               </StackPanel>
 
               <StackPanel  Orientation="Horizontal" Margin="5">
                 <Button IsVisible="{Binding IsBorrowButtonEnabled}" Content="Borrow this book" Command="{Binding BorrowBook}"></Button>
                 <Button IsVisible="{Binding IsReturnButtonEnabled}" Content="Return this book" Command="{Binding ReturnBook}"></Button>
+                <Button IsVisible="{Binding !IsUserRoleMember}" Command="{Binding SaveEditBookChanges}" Content="Save Changes"></Button>
+                <Button IsVisible="{Binding !IsUserRoleMember}" Command="{Binding DeleteBook}" Content="Delete Book"></Button>
               </StackPanel>
 
 
@@ -94,6 +140,73 @@
 
         </Border>
     </Popup>
+
+    <Popup x:Name="AddNewBookPopup"
+        IsOpen="{Binding AddNewBookPopupEnabled}"
+        Placement="Center"
+        IsLightDismissEnabled="True">
+        <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
+                BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                BorderThickness="1" CornerRadius="4" Padding="12">
+
+            <StackPanel  Orientation="Vertical" Margin="5">
+              <StackPanel  Orientation="Horizontal" Margin="5">
+
+                <Rectangle Fill="DarkGreen" Width="200" Height="320"></Rectangle>
+
+                <StackPanel IsVisible="{Binding !IsUserRoleMember}" Orientation="Vertical" Margin="5">
+                  <TextBox Text="{Binding NewBook.Title}"
+                          Watermark="Enter book title"
+                          Width="200"
+                          TextWrapping="Wrap"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Padding="0" />
+
+                  <TextBox Text="{Binding NewBook.Author}"
+                          Watermark="Enter book author"
+                          Width="200"
+                          FontSize="12"
+                          Foreground="Gray"
+                          
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Padding="0" />
+
+                  <TextBox Text="{Binding NewBook.Isbn}"
+                          Watermark="Enter book isbn"
+                          Width="200"
+                          FontSize="12"
+                          Foreground="Gray"
+                          FontStyle="Italic"
+                          
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Padding="0" />
+
+                  <TextBox Text="{Binding NewBook.Description}"
+                          Watermark="Enter book description"
+                          Width="200"
+                          TextWrapping="Wrap"
+                          Margin="0 10 0 0"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Padding="0"
+                          AcceptsReturn="True" />
+
+                  
+                </StackPanel>
+              </StackPanel>
+
+              <StackPanel  Orientation="Horizontal" Margin="5">
+                <Button IsVisible="{Binding !IsUserRoleMember}" Command="{Binding ConfirmAddNewBook}" Content="Add Book"></Button>
+              </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+    </Popup>
+  
   </StackPanel>
 
 

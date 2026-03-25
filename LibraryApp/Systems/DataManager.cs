@@ -6,6 +6,8 @@ using Avalonia.Controls;
 using LibraryApp;
 using System.Collections.ObjectModel;
 using System.Linq;
+using LibraryApp.ViewModels;
+
 
 public class DataManager
 {
@@ -109,6 +111,42 @@ public class DataManager
     public ObservableCollection<BookData> GetBorrowedBookListFromUser(UserData user)
     {
         return GetBookList(new BookFilter{ getBorrowed=true, getSpecificOwner=true, owner=user});
+    }
+
+    public void DeleteBookObject(BookData book)
+    {
+        saveData.catalog.Remove(book);
+    }
+
+    public void AddBookObject(BookData book)
+    {
+        saveData.catalog.Add(book);
+    }
+
+    public bool IsBookDetailsValid(BookData book)
+    {
+        if(book.title.Length < 1) 
+        {
+            MainWindowViewModel.Instance.ShowNotificationPopup("Title text length must be longer!");
+            return false;
+        }
+        if(book.author.Length < 1)
+        {
+            MainWindowViewModel.Instance.ShowNotificationPopup("Author text length must be longer!");
+            return false;
+        }
+        if(book.description.Length < 1)
+        {
+            MainWindowViewModel.Instance.ShowNotificationPopup("Description text length must be longer!");
+            return false;
+        }
+        if(book.isbn.Length != 13)
+        {
+            MainWindowViewModel.Instance.ShowNotificationPopup("Description text length must be 13 characters long!");
+            return false;
+        }
+
+        return true;
     }
 
     public BookData GetBookByIsbn(string isbnInput)

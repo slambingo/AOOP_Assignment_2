@@ -32,21 +32,54 @@ public partial class CatalogWindowViewModel : ViewModelBase
     [ObservableProperty]
     public bool bookDetailPopupEnabled;
 
+
+    [ObservableProperty]
+    public bool addNewBookPopupEnabled;
+
+    [ObservableProperty]
+    public BookData newBook;
+
+
+    [RelayCommand]
+    public void ConfirmAddNewBook()
+    {
+        //no validation for the book
+        if(!DataManager.Instance.IsBookDetailsValid(NewBook)) return;
+        NewBook.owner = "";
+        DataManager.Instance.AddBookObject(NewBook);
+        DataManager.Instance.SaveSaveData();
+        CloseAddBookPopup();
+        ChangeCatalogView(CatalogView.ALL_BOOKS); //needed to force update book list
+    }
+
+    [RelayCommand]
+    public void AddNewBook()
+    {
+        AddNewBookPopupEnabled = false; 
+        NewBook = new BookData();
+        AddNewBookPopupEnabled = true; 
+    }
+
+    public void CloseAddBookPopup()
+    {
+        AddNewBookPopupEnabled = false; 
+    }
+
+
     [ObservableProperty]
     private string searchQueryInput;
-
-    [ObservableProperty]
-    private bool isMemberTabsEnabled;
-
-    [ObservableProperty]
-    private bool isFullBorrowedBookListEnabled;
-
-
 
     partial void OnSearchQueryInputChanged(string value)
     {
         UpdateCatalogViewBasedOnSearchQuery(value);  // Use 'value' param for safety
     }
+
+    [ObservableProperty]
+    private bool isUserRoleMember;
+
+    [ObservableProperty]
+    private bool isFullBorrowedBookListEnabled;
+
 
     private CatalogView currentCatalogView;
 
@@ -55,12 +88,12 @@ public partial class CatalogWindowViewModel : ViewModelBase
         if(MainWindowViewModel.Instance.IsLoggedInUserMember())
         {
             ChangeCatalogView(CatalogView.AVAILABLE_BOOKS);
-            isMemberTabsEnabled = true;
+            IsUserRoleMember = true;
         }
         else
         {
            ChangeCatalogView(CatalogView.ALL_BOOKS); 
-           isMemberTabsEnabled = false;
+           IsUserRoleMember = false;
         }
         
     }
@@ -119,6 +152,27 @@ public partial class CatalogWindowViewModel : ViewModelBase
     {
         ChangeCatalogView(CatalogView.BORROWED_BOOKS);
     }
+
+    [RelayCommand]
+    public void SaveEditBookChanges()
+    {
+        if(!DataManager.Instance.IsBookDetailsValid(SelectedBook)) return;
+        MainWindowViewModel.Instance.ShowNotificationPopup("Book changes successfully saved.");
+        DataManager.Instance.SaveSaveData();
+        ChangeCatalogView(CatalogView.ALL_BOOKS); 
+    }
+
+    [RelayCommand]
+    public void DeleteBook()
+    {
+        CloseSelectedBookPopup();
+        MainWindowViewModel.Instance.ShowNotificationPopup("Book has been deleted.");
+        DataManager.Instance.DeleteBookObject(selectedBook);
+        DataManager.Instance.SaveSaveData();
+        ChangeCatalogView(CatalogView.ALL_BOOKS); //needed to force update book list
+    }
+
+
 
     private void UpdateCatalogViewBasedOnSearchQuery(string searchQuery)
     {
