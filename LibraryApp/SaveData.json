@@ -1,26 +1,117 @@
 {
-  "users": 
-  [
-    {"username": "slambi", "password": "member123", "role": "member"},
-    {"username": "buba", "password": "member123", "role": "member"},
-    {"username": "umpalumpa", "password": "admin123", "role": "librarian"},
-    {"username": "1", "password": "1", "role": "librarian"}
+  "users": [
+    {
+      "username": "slambi",
+      "password": "member123",
+      "role": "member"
+    },
+    {
+      "username": "buba",
+      "password": "member123",
+      "role": "member"
+    },
+    {
+      "username": "umpalumpa",
+      "password": "admin123",
+      "role": "librarian"
+    },
+    {
+      "username": "1",
+      "password": "1",
+      "role": "librarian"
+    }
   ],
-
-  "catalog":
-  [
-    {"title": "The Hobbit", "author": "J.R.R. Tolkien", "isbn": "9780547928227", "owner": "", "description": "Bilbo Baggins embarks on an unexpected journey with dwarves to reclaim treasure from a dragon."},
-    {"title": "1984", "author": "George Orwell", "isbn": "9780451524935", "owner": "slambi", "description": "Winston Smith lives in a dystopian world controlled by Big Brother where thought is policed."},
-    {"title": "To Kill a Mockingbird", "author": "Harper Lee", "isbn": "9780446310789", "owner": "buba", "description": "Scout Finch learns about prejudice and justice in the Deep South during the 1930s."},
-    {"title": "Pride and Prejudice", "author": "Jane Austen", "isbn": "9780141439518", "owner": "", "description": "Elizabeth Bennet navigates love, marriage, and social class in Regency England."},
-    {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "isbn": "9780743273565", "owner": "slambi", "description": "Jay Gatsby's obsessive pursuit of lost love amid 1920s excess and corruption."},
-    {"title": "Sapiens", "author": "Yuval Noah Harari", "isbn": "9780062316097", "owner": "buba", "description": "History of humankind from the Stone Age to the 21st century and our cognitive revolution."},
-    {"title": "Dune", "author": "Frank Herbert", "isbn": "9780441013593", "owner": "", "description": "Paul Atreides battles for control of the desert planet Arrakis and its valuable spice."},
-    {"title": "Clean Code", "author": "Robert C. Martin", "isbn": "9780132350884", "owner": "slambi", "description": "Practical guide to writing maintainable, readable code with real-world examples for developers."},
-    {"title": "Harry Potter and the Philosopher's Stone", "author": "J.K. Rowling", "isbn": "9781408855652", "owner": "buba", "description": "Young wizard Harry discovers his magical heritage and battles dark forces at Hogwarts."},
-    {"title": "The Da Vinci Code", "author": "Dan Brown", "isbn": "9780552159715", "owner": "", "description": "Robert Langdon uncovers religious conspiracies while solving cryptic puzzles in Paris."},
-    {"title": "Atomic Habits", "author": "James Clear", "isbn": "9781847941831", "owner": "slambi", "description": "Small changes for remarkable results through better habit formation and breaking bad ones."},
-    {"title": "The Alchemist", "author": "Paulo Coelho", "isbn": "9780062315007", "owner": "buba", "description": "Santiago the shepherd follows his Personal Legend across deserts to find treasure."},
-    {"title": "Brave New World", "author": "Aldous Huxley", "isbn": "9780060850524", "owner": "", "description": "A dystopian society where citizens are genetically engineered and pacified by pleasure."}
+  "catalog": [
+    {
+      "Title": "The Hobbit",
+      "Author": "J.R.R. Tolkien",
+      "Isbn": "9780547928227",
+      "Description": "Bilbo Baggins embarks on an unexpected journey with dwarves to reclaim treasure from a dragon.",
+      "Owner": ""
+    },
+    {
+      "Title": "1984",
+      "Author": "George Orwell",
+      "Isbn": "9780451524935",
+      "Description": "Winston Smith lives in a dystopian world controlled by Big Brother where thought is policed.",
+      "Owner": "1"
+    },
+    {
+      "Title": "To Kill a Mockingbird",
+      "Author": "Harper Lee",
+      "Isbn": "9780446310789",
+      "Description": "Scout Finch learns about prejudice and justice in the Deep South during the 1930s.",
+      "Owner": "buba"
+    },
+    {
+      "Title": "Pride and Prejudice",
+      "Author": "Jane Austen",
+      "Isbn": "9780141439518",
+      "Description": "Elizabeth Bennet navigates love, marriage, and social class in Regency England.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Great Gatsby",
+      "Author": "F. Scott Fitzgerald",
+      "Isbn": "9780743273565",
+      "Description": "Jay Gatsby\u0027s obsessive pursuit of lost love amid 1920s excess and corruption.",
+      "Owner": ""
+    },
+    {
+      "Title": "Sapiens",
+      "Author": "Yuval Noah Harari",
+      "Isbn": "9780062316097",
+      "Description": "History of humankind from the Stone Age to the 21st century and our cognitive revolution.",
+      "Owner": "buba"
+    },
+    {
+      "Title": "Dune",
+      "Author": "Frank Herbert",
+      "Isbn": "9780441013593",
+      "Description": "Paul Atreides battles for control of the desert planet Arrakis and its valuable spice.",
+      "Owner": "slambi"
+    },
+    {
+      "Title": "Clean Code",
+      "Author": "Robert C. Martin",
+      "Isbn": "9780132350884",
+      "Description": "Practical guide to writing maintainable, readable code with real-world examples for developers.",
+      "Owner": "slambi"
+    },
+    {
+      "Title": "Harry Potter and the Philosopher\u0027s Stone",
+      "Author": "J.K. Rowling",
+      "Isbn": "9781408855652",
+      "Description": "Young wizard Harry discovers his magical heritage and battles dark forces at Hogwarts.",
+      "Owner": "buba"
+    },
+    {
+      "Title": "The Da Vinci Code",
+      "Author": "Dan Brown",
+      "Isbn": "9780552159715",
+      "Description": "Robert Langdon uncovers religious conspiracies while solving cryptic puzzles in Paris.",
+      "Owner": "slambi"
+    },
+    {
+      "Title": "Atomic Habits",
+      "Author": "James Clear",
+      "Isbn": "9781847941831",
+      "Description": "Small changes for remarkable results through better habit formation and breaking bad ones.",
+      "Owner": ""
+    },
+    {
+      "Title": "The Alchemist",
+      "Author": "Paulo Coelho",
+      "Isbn": "9780062315007",
+      "Description": "Santiago the shepherd follows his Personal Legend across deserts to find treasure.",
+      "Owner": "buba"
+    },
+    {
+      "Title": "Brave New World",
+      "Author": "Aldous Huxley",
+      "Isbn": "9780060850524",
+      "Description": "A dystopian society where citizens are genetically engineered and pacified by pleasure.",
+      "Owner": ""
+    }
   ]
 }

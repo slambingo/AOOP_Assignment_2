@@ -6,34 +6,72 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="LibraryApp.Views.CatalogWindow"
              x:DataType="vm:CatalogWindowViewModel">
+  <StackPanel>
 
-  <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
-    <ItemsControl ItemsSource="{Binding BookList}">
-      <ItemsControl.ItemsPanel>
-        <ItemsPanelTemplate>
-          <WrapPanel/>
-        </ItemsPanelTemplate>
-      </ItemsControl.ItemsPanel>
-      <ItemsControl.ItemTemplate>
-        <DataTemplate>
-          <StackPanel  Margin="5">
+    <StackPanel Orientation="Horizontal" Margin="5" >
+      <Button Content="Avialable Books" Command="{Binding ShowAvailableBooks}" Margin="5"></Button>
+      <Button Content="My Books" Command="{Binding ShowMyBooks}" Margin="5" ></Button>
+      <TextBox Watermark="Search..." Margin="5" Width="150" AcceptsReturn="False" TextChanged="{Binding SearchInputChanged}"></TextBox>
+      
+    </StackPanel>
+    
+    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" MaxHeight="600">
+      <ItemsControl ItemsSource="{Binding BookList}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <WrapPanel/>
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <StackPanel  Margin="5">
 
-            <Button Classes="NoHover" Background="DarkGreen" Width="100" Height="160">
-              <Button.Flyout>
-                <Flyout >
-                    <TextBlock Text="Red Rectangle Flyout. Red Rectangle Flyout. Red Rectangle Flyout. Red Rectangle Flyout. Red Rectangle Flyout." />
-                </Flyout>
-              </Button.Flyout>
-            </Button>
+              <Button Command="{Binding $parent[UserControl].DataContext.BookClicked}" CommandParameter="{Binding Isbn}" Background="DarkGreen" Width="100" Height="160"></Button>
 
 
-            <TextBlock Text="{Binding Title}" Width="100" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
-            <TextBlock Text="{Binding Author}" Width="100" FontSize="12" Foreground="Gray" TextTrimming="CharacterEllipsis" />
-          </StackPanel>
-        </DataTemplate>
-      </ItemsControl.ItemTemplate>
-    </ItemsControl>
-  </ScrollViewer>
+              <TextBlock Text="{Binding Title}" Width="100" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
+              <TextBlock Text="{Binding Author}" Width="100" FontSize="12" Foreground="Gray" TextTrimming="CharacterEllipsis" />
+            </StackPanel>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+
+
+
+    <Popup x:Name="BookDetailPopup"
+        IsOpen="{Binding BookDetailPopupEnabled}"
+        Placement="Center"
+        IsLightDismissEnabled="True">
+        <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
+                BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                BorderThickness="1" CornerRadius="4" Padding="12">
+
+            <StackPanel  Orientation="Vertical" Margin="5">
+              <StackPanel  Orientation="Horizontal" Margin="5">
+
+                <Rectangle Fill="DarkGreen" Width="200" Height="320"></Rectangle>
+
+                <StackPanel  Orientation="Vertical" Margin="5">
+                  <TextBlock Text="{Binding SelectedBook.Title}" Width="200" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
+                  <TextBlock Text="{Binding SelectedBook.Author}" Width="200" FontSize="12" Foreground="Gray" TextTrimming="CharacterEllipsis" />
+                  <TextBlock Text="{Binding SelectedBook.Isbn}" Width="200" FontSize="12" Foreground="Gray" FontStyle="Italic" TextTrimming="CharacterEllipsis" />
+                  <TextBlock Text="{Binding SelectedBook.Description}" Width="200" TextWrapping="Wrap" Margin="0 10 0 0 "/>
+                </StackPanel>
+              </StackPanel>
+
+              <StackPanel  Orientation="Horizontal" Margin="5">
+                <Button IsVisible="{Binding IsBorrowButtonEnabled}" Content="Borrow this book" Command="{Binding BorrowBook}"></Button>
+                <Button IsVisible="{Binding IsReturnButtonEnabled}" Content="Return this book" Command="{Binding ReturnBook}"></Button>
+              </StackPanel>
+
+
+            </StackPanel>
+
+        </Border>
+    </Popup>
+  </StackPanel>
+
 
 
        

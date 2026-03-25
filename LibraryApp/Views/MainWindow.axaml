@@ -26,7 +26,8 @@
 
         <Popup x:Name="NotificationPopup"
             IsOpen="{Binding NotificationPopupEnabled}"
-            Placement="Center"
+            Placement="Bottom"
+            OverlayDismissEventPassThrough="True"
             IsLightDismissEnabled="True">
             <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
                     BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"

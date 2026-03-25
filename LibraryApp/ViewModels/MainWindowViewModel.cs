@@ -37,6 +37,8 @@ public partial class MainWindowViewModel : ViewModelBase
         instance = this;
     }
 
+
+    //these shouldn't be here!
     public UserData GetLoggedInUserProfile()
     {
         return loggedInUserProfile;

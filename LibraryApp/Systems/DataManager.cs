@@ -25,7 +25,7 @@ public class DataManager
         
     }
 
-    public ObservableCollection<BookData> GetBookList(bool getBorrowed, bool getAvailable)
+    public ObservableCollection<BookData> GetBookList(bool getBorrowed, bool getAvailable, bool specificOwner, UserData user, bool specificSearchQuery, string searchQuery)
     {
         ObservableCollection<BookData> bookList = new ObservableCollection<BookData>();
         foreach(var book in saveData.catalog)
@@ -37,7 +37,18 @@ public class DataManager
             }
             else if(getBorrowed && book.owner != string.Empty)
             {
-                bookList.Add(book);
+                if(specificOwner)
+                {
+                    if(user.username == book.owner)
+                    {
+                        bookList.Add(book);
+                    }
+                }
+                else
+                {
+                    bookList.Add(book);
+                }
+                
             }   
         }
 
@@ -47,20 +58,53 @@ public class DataManager
 
     public ObservableCollection<BookData> GetFullBookList()
     {
-        return GetBookList(true, true);
+        return GetBookList(true, true, false, null, false, string.Empty);
     }
 
     public ObservableCollection<BookData> GetAvailableBookList()
     {
-        return GetBookList(false, true);
+        return GetBookList(false, true, false, null, false, string.Empty);
     }
 
     public ObservableCollection<BookData> GetBorrowedBookList()
     {
-        return GetBookList(true, false);
+        return GetBookList(true, false, false, null, false, string.Empty);
     }
 
-    public UserData GetUser(string usernameInput, string passwordInput)
+    public ObservableCollection<BookData> GetFullBookListWithSearchQuery(string searchQuery)
+    {
+        return GetBookList(true, true, false, null, true, searchQuery);
+    }
+
+    public ObservableCollection<BookData> GetAvailableBookListWithSearchQuery(string searchQuery)
+    {
+        return GetBookList(false, true, false, null, true, searchQuery);
+    }
+
+    public ObservableCollection<BookData> GetBorrowedBookListWithSearchQuery(string searchQuery)
+    {
+        return GetBookList(true, false, false, null, true, searchQuery);
+    }
+
+    public ObservableCollection<BookData> GetBorrowedBookListFromUser(UserData user)
+    {
+        return GetBookList(true, false, true, user, false, string.Empty);
+    }
+
+    public BookData GetBookByIsbn(string isbnInput)
+    {
+        foreach(var book in saveData.catalog)
+        {
+            if(book.isbn == isbnInput)
+            {
+                return book;
+            }
+        }
+
+        return null;
+    }
+
+    public UserData GetUserWithLoginCredentials(string usernameInput, string passwordInput)
     {
         for(int i = 0; i < saveData.users.Count; i++)
         {
@@ -87,7 +131,14 @@ public class DataManager
 
     public void SaveSaveData()
     {
+        var options = new JsonSerializerOptions 
+        { 
+            PropertyNameCaseInsensitive = true,
+            WriteIndented = true  // Pretty-print JSON (optional, makes file readable)
+        };
         
+        string jsonText = JsonSerializer.Serialize(saveData, options);
+        File.WriteAllText("SaveData.json", jsonText);
     }
 
     public bool IsLogInValid(string usernameInput, string passwordInput)
